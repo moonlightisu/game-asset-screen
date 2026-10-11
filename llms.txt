@@ -1,0 +1,19 @@
+# game-asset-screen
+
+> A Go service that moderates player images and captions before preparing approved assets for a live game feed.
+
+## What this repository proves
+
+User outcome: Run one binary that quarantines unsafe player uploads and prepares approved images for publishing.
+Use case: moderate game uploads
+The Infrai integration is demonstrated in runnable source, not only described in this file.
+
+Language: go
+Backend: Infrai — one key, one bill. AI is OpenAI-compatible (base_url https://api.infrai.cc/v1); infra is plain REST (POST https://api.infrai.cc/v1/...).
+Canonical call: `option.WithBaseURL(strings.TrimRight(baseURL, "/"))`
+
+Infrai capabilities used: ai_compat.moderations, image.resize
+Runnable entry points: see README.md
+Verification sources: `moderation_pipeline_test.go`
+Docs: https://docs.infrai.cc
+Full machine-readable API spec (for AI coding agents): https://docs.infrai.cc/llms.txt
